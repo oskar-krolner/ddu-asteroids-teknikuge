@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://o0uad1dd6op4"]
+
+[ext_resource type="PackedScene" uid="uid://rt723v24qcof" path="res://spiller.tscn" id="1_epypp"]
+[ext_resource type="Script" uid="uid://cru0v8u61u4hk" path="res://bevægelse script/spiller.gd" id="2_0hol4"]
+[ext_resource type="Texture2D" uid="uid://4b03gt36h0fr" path="res://Spillerskib.png" id="3_q6r6c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kdubu"]
+radius = 76.0066
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Spiller" parent="." instance=ExtResource("1_epypp")]
+position = Vector2(640, 360)
+script = ExtResource("2_0hol4")
+
+[node name="Sprite2D" type="Sprite2D" parent="Spiller"]
+texture = ExtResource("3_q6r6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spiller"]
+position = Vector2(-1, 3)
+scale = Vector2(0.265075, 0.260438)
+shape = SubResource("CircleShape2D_kdubu")
