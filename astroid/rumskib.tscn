@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwiasgwpx2v3k"]
+
+[ext_resource type="Script" uid="uid://bk0pegqujfb74" path="res://rumskib.gd" id="1_g55bj"]
+[ext_resource type="Texture2D" uid="uid://bql3x313x71gl" path="res://pixil-frame-0 (12).png" id="1_rk7ty"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g55bj"]
+radius = 17.0
+
+[node name="Rumskib" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_g55bj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, 0)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_rk7ty")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_g55bj")
+
+[node name="Skyder" type="Node2D" parent="."]
+position = Vector2(76, -20)
