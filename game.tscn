@@ -1,13 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq8siiljtpb74"]
 
 [ext_resource type="PackedScene" uid="uid://cd0a7d7gqvooe" path="res://asteroid.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://708k8ot8vaak" path="res://node_2d.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://d2g8105g4wf7h" path="res://laser shoot.tscn" id="2_e2o6t"]
 
 [node name="game" type="Node2D"]
 
 [node name="Area2D" parent="." instance=ExtResource("1_80nbo")]
-position = Vector2(381, 396)
+position = Vector2(273, 389)
 size = 1
 
-[node name="Node2D" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(-1, 2)
+[node name="laser shoot" parent="." instance=ExtResource("2_e2o6t")]
+position = Vector2(128, 83)

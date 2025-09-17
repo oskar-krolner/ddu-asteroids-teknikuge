@@ -44,4 +44,7 @@ func _physics_process(delta):
 		global_position.y = screen_size.y
 	elif global_position.y > screen_size.y:
 		global_position.y = 0
-	
+	if global_position.x <0:
+		global_position.x = screen_size.x
+	elif global_position.x > screen_size.x:
+		global_position.x = 0
