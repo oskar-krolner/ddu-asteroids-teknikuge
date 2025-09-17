@@ -1,3 +1,3 @@
-[gd_scene format=3 uid="uid://rt723v24qcof"]
+[gd_scene load_steps=0 format=3 uid="uid://rt723v24qcof"]
 
 [node name="Spiller" type="CharacterBody2D"]
