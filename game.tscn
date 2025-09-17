@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://ccsv0bcm515ha"]
+
+[node name="game" type="Node2D"]
+
+[node name="Astroid" type="Area2D" parent="."]
