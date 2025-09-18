@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c3qnfuwl6fkpt"]
+
+[ext_resource type="AudioStream" uid="uid://b2u2w7elxht40" path="res://Sci-Fi Close.wav" id="1_as85p"]
+
+[node name="musik" type="AudioStreamPlayer"]
+stream = ExtResource("1_as85p")

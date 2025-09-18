@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b2u2w7elxht40"
+path="res://.godot/imported/Sci-Fi Close.wav-39d1663b7c39dbbfb3f229cd77a2838b.sample"
+
+[deps]
+
+source_file="res://Sci-Fi Close.wav"
+dest_files=["res://.godot/imported/Sci-Fi Close.wav-39d1663b7c39dbbfb3f229cd77a2838b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=2
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
