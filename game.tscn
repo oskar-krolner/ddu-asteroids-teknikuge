@@ -1,13 +1,29 @@
 [gd_scene load_steps=3 format=3 uid="uid://bq8siiljtpb74"]
 
 [ext_resource type="PackedScene" uid="uid://cd0a7d7gqvooe" path="res://asteroid.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://d2g8105g4wf7h" path="res://laser shoot.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://708k8ot8vaak" path="res://move.tscn" id="3_feb5d"]
 
 [node name="game" type="Node2D"]
 
-[node name="Area2D" parent="." instance=ExtResource("1_80nbo")]
+[node name="move" parent="." instance=ExtResource("3_feb5d")]
+
+[node name="asteroids" type="Node2D" parent="move"]
+
+[node name="asteroid" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(273, 389)
 size = 1
 
-[node name="laser shoot" parent="." instance=ExtResource("2_e2o6t")]
-position = Vector2(128, 83)
+[node name="asteroid2" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(956, 195)
+
+[node name="asteroid3" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(322, 192)
+
+[node name="asteroid4" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(227, 540)
+
+[node name="asteroid5" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(894, 496)
+
+[node name="asteroid6" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(703, 127)

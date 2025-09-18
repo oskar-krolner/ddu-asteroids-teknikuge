@@ -1,4 +1,6 @@
-extends Area2D
+class_name asteroid extends Area2D
+
+signal exploded (pos, size)
 
 var movement_vector := Vector2(0, -1)
 
@@ -17,7 +19,7 @@ func _ready():
 	match size:
 		asteroidsize.large:
 			speed = randf_range(50, 100)
-			sprite.texture = preload("res://asteroid big.png")
+			sprite.texture = preload("res://asteroid large.png")
 			cshape.shape = preload("res://resources/astroid_cshape_large.tres")
 		asteroidsize.medium:
 			speed = randf_range(100, 150)
@@ -38,13 +40,17 @@ func _ready():
 func _physics_process(delta):
 	global_position += movement_vector.rotated(rotation) * speed * delta
 	
-	
+	var radius =cshape.shape.radius
 	var screen_size = get_viewport_rect().size
-	if global_position.y <0:
-		global_position.y = screen_size.y
-	elif global_position.y > screen_size.y:
-		global_position.y = 0
-	if global_position.x <0:
-		global_position.x = screen_size.x
-	elif global_position.x > screen_size.x:
-		global_position.x = 0
+	if (global_position.y+radius) <0:
+		global_position.y = (screen_size.y+radius)
+	elif (global_position.y-radius) > screen_size.y:
+		global_position.y = -radius
+	if (global_position.x+radius) <0:
+		global_position.x = (screen_size.x+radius)
+	elif (global_position.x-radius) > screen_size.x:
+		global_position.x = -radius
+
+func explode():
+	emit_signal("exploded", global_position, size)
+	queue_free()
