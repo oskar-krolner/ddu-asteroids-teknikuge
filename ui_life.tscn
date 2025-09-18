@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://donhmrqswi88e"]
+
+[ext_resource type="Texture2D" uid="uid://4b03gt36h0fr" path="res://Spillerskib.png" id="1_eo68o"]
+
+[node name="UILife" type="TextureRect"]
+offset_left = 17.0
+offset_top = 94.0
+offset_right = 81.0
+offset_bottom = 158.0
+texture = ExtResource("1_eo68o")

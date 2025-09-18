@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
 @export var acceleration := 10
 @export var max_speed := 300
@@ -31,9 +31,11 @@ func _physics_process(delta):
 
 
 signal skud_pewed(skud)
-
-
+signal died
+var alive = true
 @onready var skyder = $Skyder
+@onready var sprite = $Sprite2D
+
 
 var skud_scene = preload("res://skud.tscn")
 
@@ -49,3 +51,18 @@ func skud_pew():
 	l.global_position = skyder.global_position
 	l.rotation = rotation
 	emit_signal("skud_pewed", l)
+
+func die():
+	if alive == true:
+		alive = false
+		emit_signal("died")
+		sprite.visible = false
+		process_mode = Node.PROCESS_MODE_DISABLED
+
+func respawn(pos):
+	if alive ==false:
+		alive = true
+		global_position = pos
+		velocity = Vector2.ZERO
+		sprite.visible = true
+		process_mode = Node.PROCESS_MODE_INHERIT

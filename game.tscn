@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bq8siiljtpb74"]
+[gd_scene load_steps=7 format=3 uid="uid://bq8siiljtpb74"]
 
 [ext_resource type="PackedScene" uid="uid://cd0a7d7gqvooe" path="res://asteroid.tscn" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://besso6qmv304p" path="res://hud.tscn" id="2_feb5d"]
+[ext_resource type="PackedScene" uid="uid://bl6yeqfvoh54o" path="res://hud.tscn" id="2_feb5d"]
+[ext_resource type="AudioStream" uid="uid://ifb60ojt2gkx" path="res://laser1.wav" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://708k8ot8vaak" path="res://move.tscn" id="3_feb5d"]
+[ext_resource type="AudioStream" uid="uid://cmjbi3xgprgpu" path="res://explosion08.wav" id="4_ryrav"]
+[ext_resource type="AudioStream" uid="uid://b2u2w7elxht40" path="res://Sci-Fi Close.wav" id="6_eow3j"]
 
 [node name="game" type="Node2D"]
 
@@ -32,3 +35,16 @@ position = Vector2(894, 496)
 
 [node name="asteroid6" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(703, 127)
+
+[node name="eksplosion_lyd" type="AudioStreamPlayer" parent="move"]
+stream = ExtResource("4_ryrav")
+
+[node name="laserpewpewnoise" type="AudioStreamPlayer" parent="move"]
+stream = ExtResource("3_fc0e3")
+
+[node name="playerspawnpos" type="Node2D" parent="move"]
+position = Vector2(640, 360)
+
+[node name="Sci-fiClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_eow3j")
+autoplay = true
