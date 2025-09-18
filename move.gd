@@ -3,10 +3,18 @@ extends Node2D
 @onready var angreb = $Angreb
 @onready var rumskib = $Spiller
 @onready var asteroids = $asteroids
+@onready var hud = $UI/HUD
 
 var asteroid_scene = preload("res://asteroid.tscn")
 
+var score := 0:
+	set(value):
+		score = value
+		hud.score = score
+
+
 func _ready():
+	score = 0
 	rumskib.connect("skud_pewed", _on_rumskib_skud_pew)
 	
 	for asteroid in asteroids.get_children():
@@ -17,7 +25,8 @@ func _on_rumskib_skud_pew(skud):
 
 
 
-func _on_asteroid_exploded(pos, size):
+func _on_asteroid_exploded(pos, size, points):
+	score += points
 	for i in range(2):
 		match size:
 			asteroid.asteroidsize.large:

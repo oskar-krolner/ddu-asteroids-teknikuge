@@ -1,11 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://bq8siiljtpb74"]
+[gd_scene load_steps=4 format=3 uid="uid://bq8siiljtpb74"]
 
 [ext_resource type="PackedScene" uid="uid://cd0a7d7gqvooe" path="res://asteroid.tscn" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://besso6qmv304p" path="res://hud.tscn" id="2_feb5d"]
 [ext_resource type="PackedScene" uid="uid://708k8ot8vaak" path="res://move.tscn" id="3_feb5d"]
 
 [node name="game" type="Node2D"]
 
 [node name="move" parent="." instance=ExtResource("3_feb5d")]
+
+[node name="UI" type="CanvasLayer" parent="move"]
+
+[node name="HUD" parent="move/UI" instance=ExtResource("2_feb5d")]
 
 [node name="asteroids" type="Node2D" parent="move"]
 
