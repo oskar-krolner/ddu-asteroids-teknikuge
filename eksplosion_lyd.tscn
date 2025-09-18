@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://baicpi5w06dfy"]
+
+[ext_resource type="AudioStream" uid="uid://cmjbi3xgprgpu" path="res://explosion08.wav" id="1_phrod"]
+
+[node name="eksplosion_lyd" type="AudioStreamPlayer"]
+stream = ExtResource("1_phrod")
+pitch_scale = 0.85
