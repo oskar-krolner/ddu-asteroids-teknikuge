@@ -23,18 +23,23 @@ size = 1
 
 [node name="asteroid2" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(956, 195)
+size = 0
 
 [node name="asteroid3" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(322, 192)
+size = 0
 
 [node name="asteroid4" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(227, 540)
+size = 0
 
 [node name="asteroid5" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(894, 496)
+size = 0
 
 [node name="asteroid6" parent="move/asteroids" instance=ExtResource("1_80nbo")]
 position = Vector2(703, 127)
+size = 0
 
 [node name="eksplosion_lyd" type="AudioStreamPlayer" parent="move"]
 stream = ExtResource("4_ryrav")
