@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bq8siiljtpb74"]
+[gd_scene load_steps=8 format=3 uid="uid://bq8siiljtpb74"]
 
 [ext_resource type="PackedScene" uid="uid://cd0a7d7gqvooe" path="res://asteroid.tscn" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bl6yeqfvoh54o" path="res://hud.tscn" id="2_feb5d"]
 [ext_resource type="AudioStream" uid="uid://ifb60ojt2gkx" path="res://laser1.wav" id="3_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://708k8ot8vaak" path="res://move.tscn" id="3_feb5d"]
+[ext_resource type="Script" uid="uid://coeol3ychub7l" path="res://autospawnasteroid.gd" id="4_eow3j"]
 [ext_resource type="AudioStream" uid="uid://cmjbi3xgprgpu" path="res://explosion08.wav" id="4_ryrav"]
 [ext_resource type="AudioStream" uid="uid://b2u2w7elxht40" path="res://Sci-Fi Close.wav" id="6_eow3j"]
 
@@ -15,27 +16,6 @@
 
 [node name="HUD" parent="move/UI" instance=ExtResource("2_feb5d")]
 
-[node name="asteroids" type="Node2D" parent="move"]
-
-[node name="asteroid" parent="move/asteroids" instance=ExtResource("1_80nbo")]
-position = Vector2(273, 389)
-size = 1
-
-[node name="asteroid2" parent="move/asteroids" instance=ExtResource("1_80nbo")]
-position = Vector2(956, 195)
-
-[node name="asteroid3" parent="move/asteroids" instance=ExtResource("1_80nbo")]
-position = Vector2(322, 192)
-
-[node name="asteroid4" parent="move/asteroids" instance=ExtResource("1_80nbo")]
-position = Vector2(227, 540)
-
-[node name="asteroid5" parent="move/asteroids" instance=ExtResource("1_80nbo")]
-position = Vector2(894, 496)
-
-[node name="asteroid6" parent="move/asteroids" instance=ExtResource("1_80nbo")]
-position = Vector2(703, 127)
-
 [node name="eksplosion_lyd" type="AudioStreamPlayer" parent="move"]
 stream = ExtResource("4_ryrav")
 
@@ -45,6 +25,52 @@ stream = ExtResource("3_fc0e3")
 [node name="playerspawnpos" type="Node2D" parent="move"]
 position = Vector2(640, 360)
 
+[node name="asteroids" type="Node2D" parent="move"]
+
+[node name="asteroid" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(273, 389)
+size = 1
+
+[node name="asteroid2" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(956, 195)
+size = 0
+
+[node name="asteroid3" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(322, 192)
+size = 0
+
+[node name="asteroid4" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(227, 540)
+size = 0
+
+[node name="asteroid5" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(894, 496)
+size = 0
+
+[node name="asteroid6" parent="move/asteroids" instance=ExtResource("1_80nbo")]
+position = Vector2(703, 127)
+size = 0
+
+[node name="Node2D" type="Node2D" parent="move/asteroids"]
+script = ExtResource("4_eow3j")
+
+[node name="Timer" type="Timer" parent="move/asteroids/Node2D"]
+wait_time = 5.0
+autostart = true
+ignore_time_scale = true
+
+[node name="asteroids2" type="Node2D" parent="move/asteroids/Node2D"]
+
+[node name="Timer" type="Timer" parent="move"]
+wait_time = 5.010000000000001
+autostart = true
+ignore_time_scale = true
+
 [node name="Sci-fiClose" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_eow3j")
 autoplay = true
+
+[connection signal="timeout" from="move/asteroids/Node2D/Timer" to="move" method="_on_timer_timeout"]
+[connection signal="timeout" from="move/asteroids/Node2D/Timer" to="move/asteroids" method="_on_timer_timeout"]
+[connection signal="timeout" from="move/asteroids/Node2D/Timer" to="move/asteroids/Node2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="move/Timer" to="move" method="_on_timer_timeout"]
