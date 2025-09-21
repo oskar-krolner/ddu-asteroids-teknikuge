@@ -5,6 +5,7 @@ extends Node2D
 @onready var asteroids = $asteroids
 @onready var hud = $UI/HUD
 @onready var player_spawn_pos = $playerspawnpos
+@onready var asteroids2 = $asteroids/Node2D/asteroids2
 
 var asteroid_scene = preload("res://asteroid.tscn")
 
@@ -25,6 +26,7 @@ func _ready():
 	rumskib.connect("died", _on_player_died)
 	for asteroid in asteroids.get_children():
 		asteroid.connect("exploded", _on_asteroid_exploded)
+
 
 func _on_rumskib_skud_pew(skud):
 	angreb.add_child(skud)
@@ -68,3 +70,8 @@ func _on_player_died():
 		await get_tree().create_timer(1).timeout
 		Player.respawn(player_spawn_pos.global_position)
 	
+
+
+func _on_timer_timeout() -> void:
+	for asteroid in asteroids2.get_children():
+		asteroid.connect("exploded", _on_asteroid_exploded)
