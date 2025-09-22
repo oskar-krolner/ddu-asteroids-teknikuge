@@ -48,7 +48,7 @@ func _on_asteroid_exploded(pos, size, points):
 			asteroid.asteroidsize.tiny:
 				pass
 		
-@onready var Player =$Spiller
+@onready var Player = $Spiller
 	
 	
 	

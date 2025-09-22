@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Astroid"
-run/main_scene="uid://bq8siiljtpb74"
+run/main_scene="uid://c21jn60h71d2e"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 

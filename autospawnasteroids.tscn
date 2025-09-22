@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2b5vy3w8su31"]
+
+[ext_resource type="PackedScene" uid="uid://708k8ot8vaak" path="res://move.tscn" id="1_o4ttx"]
+[ext_resource type="PackedScene" uid="uid://bl6yeqfvoh54o" path="res://hud.tscn" id="2_41ge3"]
+[ext_resource type="AudioStream" uid="uid://ifb60ojt2gkx" path="res://laser1.wav" id="3_03j8d"]
+[ext_resource type="AudioStream" uid="uid://cmjbi3xgprgpu" path="res://explosion08.wav" id="4_jtjvs"]
+[ext_resource type="PackedScene" uid="uid://cd0a7d7gqvooe" path="res://asteroid.tscn" id="5_vff3y"]
+[ext_resource type="Script" uid="uid://coeol3ychub7l" path="res://autospawnasteroid.gd" id="6_mp12y"]
+[ext_resource type="AudioStream" uid="uid://b2u2w7elxht40" path="res://Sci-Fi Close.wav" id="7_41ge3"]
+[ext_resource type="PackedScene" uid="uid://c21jn60h71d2e" path="res://game_3.tscn" id="8_03j8d"]
+
+[node name="game 2" type="Node2D"]
+
+[node name="move" parent="." instance=ExtResource("1_o4ttx")]
+
+[node name="UI" type="CanvasLayer" parent="move"]
+
+[node name="HUD" parent="move/UI" instance=ExtResource("2_41ge3")]
+
+[node name="laserpewpewnoise" type="AudioStreamPlayer" parent="move"]
+stream = ExtResource("3_03j8d")
+
+[node name="eksplosion_lyd" type="AudioStreamPlayer" parent="move"]
+stream = ExtResource("4_jtjvs")
+
+[node name="playerspawnpos" type="Node2D" parent="move"]
+position = Vector2(639, 367)
+
+[node name="asteroids" type="Node2D" parent="move"]
+
+[node name="asteroid" parent="move/asteroids" instance=ExtResource("5_vff3y")]
+position = Vector2(906, 522)
+
+[node name="asteroid2" parent="move/asteroids" instance=ExtResource("5_vff3y")]
+position = Vector2(533, 142)
+
+[node name="asteroid3" parent="move/asteroids" instance=ExtResource("5_vff3y")]
+position = Vector2(361, 535)
+
+[node name="asteroid4" parent="move/asteroids" instance=ExtResource("5_vff3y")]
+position = Vector2(143, 352)
+
+[node name="asteroid5" parent="move/asteroids" instance=ExtResource("5_vff3y")]
+position = Vector2(241, 171)
+
+[node name="asteroid6" parent="move/asteroids" instance=ExtResource("5_vff3y")]
+position = Vector2(944, 95)
+
+[node name="Node2D" type="Node2D" parent="move/asteroids"]
+script = ExtResource("6_mp12y")
+
+[node name="asteroids2" type="Node2D" parent="move/asteroids/Node2D"]
+
+[node name="Timer" type="Timer" parent="move/asteroids/Node2D"]
+wait_time = 5.0
+autostart = true
+ignore_time_scale = true
+
+[node name="Timer" type="Timer" parent="move"]
+wait_time = 5.010000000000001
+autostart = true
+ignore_time_scale = true
+
+[node name="SciFiClose" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_41ge3")
+autoplay = true
+
+[node name="game 3" parent="." instance=ExtResource("8_03j8d")]
+
+[connection signal="timeout" from="move/asteroids/Node2D/Timer" to="move/asteroids/Node2D" method="_on_timer_timeout"]
+[connection signal="timeout" from="move/Timer" to="move" method="_on_timer_timeout"]
