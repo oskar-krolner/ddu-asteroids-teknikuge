@@ -16,6 +16,7 @@
 
 [node name="HUD" parent="move/UI" instance=ExtResource("2_feb5d")]
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 [node name="asteroids" type="Node2D" parent="move"]
 
@@ -45,6 +46,8 @@ size = 0
 
 =======
 >>>>>>> 08399fc2c9ff7803106fd7ce20140ad4d2c87a43
+=======
+>>>>>>> Stashed changes
 [node name="eksplosion_lyd" type="AudioStreamPlayer" parent="move"]
 stream = ExtResource("4_ryrav")
 
